@@ -57,6 +57,28 @@ int countItemsI (Node *head) {
   return count;
 }
 
+void displayItem (Node *head, int i) {
+  if (head == nullptr) return;
+  else {
+    if (i == 1) {
+      std::cout << "*** " << head->data << std::endl;
+      return;
+    }
+    displayItem (head->next, i-1);
+  }
+}
+
+void displayItemI (Node *head, int i) {
+  while (head != nullptr) {
+    if (i == 1) {
+      std::cout << "*** " << head->data << std::endl;
+      return;
+    }
+    head = head->next;
+    i--;
+  }
+}
+
 int main () {
   Node *head = new Node;
   head = new Node;
@@ -69,12 +91,14 @@ int main () {
   addNode (head, 4);
   addNode (head, 5);
   printList (head);
+  displayItem (head, 3);
   std::cout << countItems (head) << std::endl << std::endl;
 
   // delete some values
   deleteValue (head, 3);
   deleteValue (head, 5);
   printList (head);
+  displayItemI (head, 2);
   std::cout << countItemsI (head) << std::endl << std::endl;
 
   return 0;
