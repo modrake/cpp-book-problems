@@ -41,6 +41,22 @@ void deleteValue (Node *&head, int v) {
   }
 }
 
+int countItems (Node *head) {
+  if (head == nullptr) return 0;
+  else {
+    return 1 + countItems(head->next);
+  }
+}
+
+int countItemsI (Node *head) {
+  int count = 0;
+  while (head != nullptr) {
+    head = head->next;
+    count++;
+  }
+  return count;
+}
+
 int main () {
   Node *head = new Node;
   head = new Node;
@@ -53,12 +69,13 @@ int main () {
   addNode (head, 4);
   addNode (head, 5);
   printList (head);
+  std::cout << countItems (head) << std::endl << std::endl;
 
   // delete some values
   deleteValue (head, 3);
   deleteValue (head, 5);
-
   printList (head);
+  std::cout << countItemsI (head) << std::endl << std::endl;
 
   return 0;
 }
