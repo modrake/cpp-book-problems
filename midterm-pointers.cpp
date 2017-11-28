@@ -13,7 +13,7 @@ void modifier (int a, int *b, int *c, int *&d) {
 }
 
 int main () {
-  int a = 9;
+  int a = 6;
   int *b = new int;
   int *c = new int;
   int *d = c;

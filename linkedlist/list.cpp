@@ -34,19 +34,20 @@ void flipEveryOther (Node *&head) {
       cur->next = b->next;
       b->next = cur;
       head = b;
+      b = nullptr;
       delete b;
     }
     while ((cur->next != nullptr) && (cur->next->next != nullptr)) {
-      std::cout << "* " << cur->data;
       Node *a = cur->next;
       Node *b = cur->next->next;
       cur->next = b;
       a->next = b->next;
       b->next = a;
       cur = cur->next->next;
-      //delete a;
-      //delete b;
-      std::cout << "& " <<std::endl;
+      a = nullptr;
+      b = nullptr;
+      delete a;
+      delete b;
     }
 }
 
